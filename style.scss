@@ -331,6 +331,14 @@ img {
   border-bottom: 0.5px dotted $lightGray;
 }
 
+.twitter-conversation {
+  margin-top: 40px;
+
+  @include mobile {
+    margin-top: 10px;
+  }
+}
+
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import 'highlights';
