@@ -186,7 +186,7 @@ img {
 
   .masthead {
     flex: 0 0;
-    padding: 4em 0 4em 4em;
+    padding: 4em 0 0 4em;
 
     @include mobile {
       padding: 20px;
@@ -205,9 +205,18 @@ img {
     }
   }
 
-  #togglable.closed {
-    @include mobile {
-      display: none;
+  #togglable {
+    & > div {
+      padding: 4em 0 0 4em;
+
+      @include mobile {
+        padding: 20px;
+      }
+    }
+    &.closed {
+      @include mobile {
+        display: none;
+      }
     }
   }
 
@@ -234,13 +243,6 @@ img {
   }
 
   .site-recents {
-    flex: 1;
-    padding: 0 4em;
-
-    @include mobile {
-      padding: 20px;
-    }
-
     .site-recents-label {
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -261,17 +263,6 @@ img {
       & + .site-recents-post a {
         border-top: 0.5px solid #5d84a7;
       }
-    }
-  }
-  .footer-item {
-    padding: 4em 0 4em 4em;
-
-    @include mobile {
-      padding: 20px;
-    }
-
-    .social {
-      margin-top: 40px;
     }
   }
 }
