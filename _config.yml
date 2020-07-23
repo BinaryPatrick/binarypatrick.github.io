@@ -3,10 +3,10 @@
 #
 
 # Name of your site (displayed in the header)
-name: Patrick Moore
+name: Patrick's Blog
 
 # Short bio or description (displayed in the header)
-description: Full Stack Developer
+description: Into the Void!
 
 #
 # Flags below are optional
@@ -22,7 +22,7 @@ footer-links:
   instagram:
   linkedin:
   pinterest:
-  rss: rss
+  rss:
   twitter: BinaryPatrick
   stackoverflow: users/4686882/binarypatrick
   youtube: # channel/<your_long_string> or user/<user-name>

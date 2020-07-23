@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
-
     {% include meta.html %}
 
     <!--[if lt IE 9]>
@@ -10,6 +9,10 @@
     <![endif]-->
 
     <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Serif:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="alternate"
       type="application/rss+xml"
@@ -19,37 +22,27 @@
   </head>
 
   <body>
-    <div class="wrapper-main">
-      <header class="masthead">
-        <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.baseurl }}/images/profile.jpg" /></a>
-
-        <div class="wrapper-site-info">
-          <div class="site-info">
-            <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-            <p class="site-description">{{ site.description }}</p>
-          </div>
-
-          <nav>
-            <a href="{{ site.baseurl }}/">Blog </a>
-            <span class="divider">|</span>
-            <a href="{{ site.baseurl }}/about">About</a>
-            <span class="divider">|</span>
-            <a href="{{ site.baseurl }}/sitemap">Site Map</a>
-          </nav>
-        </div>
-      </header>
-
-      <div id="main" role="main">
-        {{ content }}
+    <div id="sidebar">
+      <div class="masthead">
+        <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
+        <p class="site-description">{{ site.description }}</p>
+      </div>
+      <div class="menu-toggle">
+        <button>button</button>
+      </div>
+      <div class="site-recents">
+        <div class="site-recents-label">Recent Posts</div>
+        {% for post in site.posts limit:6 %}
+        <div class="site-recents-post"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
+        {% endfor %}
+      </div>
+      <div class="footer-item">
+        <a href="{{ site.baseurl }}/archive">Archives</a>
+        <div class="social">{% include svg-icons.html %}</div>
       </div>
     </div>
-
-    <div class="wrapper-footer">
-      <div class="container">
-        <footer class="footer">
-          {% include svg-icons.html %}
-        </footer>
-      </div>
+    <div id="main" role="main">
+      {{ content }}
     </div>
 
     {% include analytics.html %}

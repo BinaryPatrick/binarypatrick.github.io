@@ -1,5 +1,5 @@
 ---
-layout: sitemap
-title: Site Map
-permalink: /sitemap.html
+layout: archive
+title: Archive
+permalink: /archive.html
 ---

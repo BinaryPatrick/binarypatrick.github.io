@@ -20,18 +20,15 @@ html {
 
 body {
   background: $white;
-  font: 18px/1.4 $helvetica;
+  font: 18px/1.4 $notoSans;
   color: $darkGray;
   min-height: 100%;
   display: flex;
-  flex-direction: column;
-}
+  flex-direction: row;
 
-.container {
-  margin: 0 auto;
-  max-width: 740px;
-  padding: 0 10px;
-  width: 100%;
+  @include mobile {
+    flex-direction: column;
+  }
 }
 
 h1,
@@ -40,12 +37,12 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: $helveticaNeue;
+  font-family: $notoSerif;
   color: $darkerGray;
   font-weight: bold;
 
   line-height: 1.7;
-  margin: 15px 0;
+  margin: 0 0 15px;
   padding: 0;
 
   @include mobile {
@@ -83,7 +80,8 @@ a {
   cursor: pointer;
   &:hover,
   &:active {
-    color: $blue;
+    color: $darkerGray;
+    text-decoration: underline;
   }
 }
 
@@ -163,112 +161,103 @@ img {
 /* LAYOUT / SECTIONS */
 /*********************/
 
-//
-// .masthead
-//
+// SIDEBAR
 
-.wrapper-main {
-  flex: 1;
-  display: flex;
-  flex-direction: row;
-
-  @include mobile {
-    flex-direction: column;
-  }
-}
-
-.masthead {
-  padding: 20px 0 0;
-  flex: 0 0 300px;
-  display: flex;
-  flex-direction: column;
-  background: $gray;
-  text-align: center;
-  border-right: 1px solid $lightGray;
-
-  @include mobile {
-    flex: 0 1;
-    flex-direction: row;
-    padding: 10px;
-    border-right: 0;
-    border-bottom: 1px solid $lightGray;
-  }
-}
-
-.site-avatar {
-  display: block;
-  margin: 0 auto;
-  padding: 0 20px;
-
-  @include mobile {
-    margin: 0;
-    padding: 0;
-  }
-
-  img {
-    display: block;
-    border-radius: 5px;
-
-    @include mobile {
-      width: 100px;
-    }
-  }
-}
-
-.wrapper-site-info {
-  flex: 1;
-}
-
-.site-info {
-  display: block;
-  margin: 0 auto;
-}
-
-.site-name {
-  margin: 0;
+#sidebar {
+  max-width: 400px;
+  width: 33%;
   color: $white;
-  cursor: pointer;
-  font-family: $helveticaNeue;
-  font-weight: 300;
-  font-size: 28px;
-  letter-spacing: 1px;
-}
-
-.site-description {
-  margin: -5px 0 0 0;
-  color: $lightGray;
-  font-size: 16px;
+  background-color: $blue;
+  font-family: $notoSans;
 
   @include mobile {
-    margin: 3px auto;
+    width: 100%;
+    max-width: 100%;
   }
-}
-
-nav {
-  margin: 10px 0 0 0;
-  text-align: center;
-  display: block;
-  font-family: $helveticaNeue;
-  font-size: 18px;
 
   a {
-    margin: 5px 0 0 0;
-    display: block;
-    color: $lightGray;
-    font-weight: 300;
-    letter-spacing: 1px;
-
-    @include mobile {
-      margin: 0;
-      display: inline-block;
+    color: $white;
+    &:hover,
+    &:focus {
+      color: $lightGray;
+      text-decoration: none;
     }
   }
 
-  .divider {
-    display: none;
+  .masthead {
+    flex: 0 0;
+    padding: 4em 0 4em 4em;
 
     @include mobile {
-      display: inline-block;
+      padding: 20px;
+    }
+
+    .site-name {
+      font-weight: 300;
+      font-size: 28px;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    .site-description {
+      font-size: 16px;
+      margin: 0;
+    }
+  }
+
+  .menu-toggle {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    height: 50px;
+    width: 50px;
+    overflow: hidden;
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  .site-recents {
+    flex: 1;
+    padding: 0 4em;
+
+    @include mobile {
+      padding: 20px;
+    }
+
+    .site-recents-label {
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: bold;
+      margin-bottom: 1.5em;
+      font-size: 0.8em;
+    }
+
+    .site-recents-post {
+      $spacing: 5px;
+      display: block;
+
+      a {
+        display: inline-block;
+        padding: $spacing 0;
+      }
+
+      & + .site-recents-post a {
+        border-top: 0.5px solid #5d84a7;
+      }
+    }
+  }
+  .footer-item {
+    padding: 4em 0 4em 4em;
+
+    @include mobile {
+      padding: 20px;
+    }
+
+    .social {
+      margin-top: 10px;
     }
   }
 }
@@ -278,9 +267,8 @@ nav {
 //
 
 #main {
-  flex: 1;
   max-width: 700px;
-  margin-left: 20px;
+  margin: 4em;
 
   @include mobile {
     margin-left: 0;
@@ -289,8 +277,12 @@ nav {
 }
 
 .posts > .post {
-  padding-bottom: 2em;
-  border-bottom: 1px solid $lightGray;
+  padding-bottom: 1em;
+  border-bottom: 1px solid $lighterGray;
+
+  & + .post {
+    padding-top: 1em;
+  }
 }
 
 .posts > .post:last-child {
@@ -318,23 +310,14 @@ nav {
   }
 }
 
-.wrapper-footer {
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
-}
-
-footer {
-  padding: 20px 0;
-  text-align: center;
+.post-listing {
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  border-bottom: 0.5px dotted $lightGray;
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import 'highlights';
 @import 'svg-icons';
-
-.post-listing {
-  display: inline-block;
-  margin-right: 20px;
-}
