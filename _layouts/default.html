@@ -23,28 +23,34 @@
 
   <body>
     <div id="sidebar">
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <div class="toggle-bar"></div>
+        <div class="toggle-bar"></div>
+        <div class="toggle-bar"></div>
+        <div class="toggle-bar"></div>
+        <div class="toggle-bar"></div>
+      </div>
       <div class="masthead">
         <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
         <p class="site-description">{{ site.description }}</p>
       </div>
-      <div class="menu-toggle">
-        <button>button</button>
-      </div>
-      <div class="site-recents">
-        <div class="site-recents-label">Recent Posts</div>
-        {% for post in site.posts limit:6 %}
-        <div class="site-recents-post"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
-        {% endfor %}
-      </div>
-      <div class="footer-item">
-        <a href="{{ site.baseurl }}/archive">Archives</a>
-        <div class="social">{% include svg-icons.html %}</div>
+      <div id="togglable" class="closed">
+        <div class="site-recents">
+          <div class="site-recents-label">Recent Posts</div>
+          {% for post in site.posts limit:6 %}
+          <div class="site-recents-post"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></div>
+          {% endfor %}
+        </div>
+        <div class="footer-item">
+          <a href="{{ site.baseurl }}/archive">Archives</a>
+          <div class="social">{% include svg-icons.html %}</div>
+        </div>
       </div>
     </div>
     <div id="main" role="main">
       {{ content }}
     </div>
 
-    {% include analytics.html %}
+    {% include analytics.html %} {% include js.html %}
   </body>
 </html>
