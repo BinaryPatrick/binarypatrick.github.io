@@ -52,13 +52,9 @@ h6 {
 h1,
 h2 {
   margin: 0;
-  a {
-    color: inherit;
-  }
 }
 
 h1 {
-  color: #1e73be;
   font-size: 2rem;
 }
 
@@ -197,11 +193,6 @@ img {
 
   a {
     color: $white;
-    &:hover,
-    &:focus {
-      color: $lightGray;
-      text-decoration: none;
-    }
   }
 
   .sidebar-body {
@@ -225,6 +216,11 @@ img {
       letter-spacing: 1px;
       padding: 0;
       margin: 0;
+
+      a:hover {
+        color: $lightYellow;
+        text-decoration: none;
+      }
 
       @include mobile {
         line-height: 1.4;
