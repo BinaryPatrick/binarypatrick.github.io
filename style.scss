@@ -39,7 +39,6 @@ h4,
 h5,
 h6 {
   font-family: $notoSerif;
-  color: $darkerGray;
   font-weight: bold;
   line-height: 1.7;
   margin: 15px 0 0;
@@ -50,12 +49,17 @@ h6 {
   }
 }
 
-h1 {
+h1,
+h2 {
   margin: 0;
-  font-size: 30px;
   a {
     color: inherit;
   }
+}
+
+h1 {
+  color: #1e73be;
+  font-size: 2rem;
 }
 
 h2 {
@@ -195,7 +199,7 @@ img {
     color: $white;
     &:hover,
     &:focus {
-      color: $lightGray;
+      color: $lightOrange;
       text-decoration: none;
     }
   }
@@ -214,10 +218,18 @@ img {
     flex: 0 0;
 
     .site-name {
+      font-family: $notoSerif;
+      color: $darkerGray;
+      line-height: 1.7;
       font-weight: 300;
-      font-size: 28px;
+      font-size: 2rem;
       letter-spacing: 1px;
+      padding: 0;
       margin: 0;
+
+      @include mobile {
+        line-height: 1.4;
+      }
     }
 
     .site-description {
@@ -230,7 +242,7 @@ img {
     @include mobile {
       height: 100vh;
       transition: height 0.4s;
-      overflow-y: scroll;
+      overflow-y: hidden;
 
       &.closed {
         height: 0;
@@ -251,7 +263,7 @@ img {
     position: absolute;
     display: none;
     flex-direction: column;
-    top: 15px;
+    top: 18px;
     right: 30px;
     height: 35px;
     width: 30px;
@@ -290,6 +302,12 @@ img {
       & + .site-recents-post a {
         border-top: 0.5px solid #5d84a7;
       }
+    }
+  }
+
+  .footer-links {
+    p {
+      margin: 5px 0;
     }
   }
 }
@@ -354,12 +372,8 @@ img {
   border-bottom: 0.5px dotted $lightGray;
 }
 
-.twitter-conversation {
-  margin-top: 40px;
-
-  @include mobile {
-    margin-top: 10px;
-  }
+.twitter-share-button {
+  vertical-align: middle;
 }
 
 .date {
@@ -372,6 +386,17 @@ img {
   content: '|';
   margin: 0 5px;
   font-style: normal;
+}
+
+.tags {
+  font-style: italic;
+  font-size: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #bbb;
+
+  .tag:not(:last-of-type)::after {
+    content: ',';
+  }
 }
 
 // Settled on moving the import of syntax highlighting to the bottom of the CSS

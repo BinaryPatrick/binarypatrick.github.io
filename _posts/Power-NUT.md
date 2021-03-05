@@ -4,9 +4,11 @@ layout: post
 
 I recently undertook a project to overhaul my backup process. While more information about my backup process is coming in future blog posts, I want to talk a little bit about power. Specifically uninterruptible power supplies and and [NUT](https://networkupstools.org/).
 
-I never really worried much about backup power, but in the middle of troubleshooting unrelenting parity errors and poor power continuity at my house, I decided it was time to get a battery backup. I ended up with a [850W Cyber Power](https://www.cyberpowersystems.com/product/ups/pfc-sinewave/cp850pfclcd/). I picked for the pure sine power feature, and the fact that it offered monitoring. As configured, it provides about 45 minutes of power to some essential components.
+I never really worried much about backup power, but in the middle of troubleshooting unrelenting parity errors and poor power continuity at my house, I decided it was time to get a battery backup. I ended up with a [850W Cyber Power](https://www.cyberpowersystems.com/product/ups/pfc-sinewave/cp850pfclcd/). I picked for the pure sine power feature, and the fact that it offered monitoring.
 
 <!--more-->
+
+As configured, it provides about 45 minutes of power to some essential components.
 
 Those components are:
 

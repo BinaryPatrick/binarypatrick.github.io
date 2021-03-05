@@ -1,8 +1,9 @@
 ---
 layout: post
-title: 'Adding Build Versions in Angular'
+title: 'Adding build versions in Angular'
 date: 2021-03-04 19:30:00 -0500
 edit: 2021-03-05 10:30:00 -0500
+tags: ['Angular', 'Pipeline', 'DevOps']
 ---
 
 Have you ever found yourself wondering which version of an SPA is running when you pull up your site? This was a problem I wanted to answer in my Angular SPA. Utilizing the `npm version` command in my build pipeline, I was able to include my pipeline build number in my app, significantly decreased troubleshooting time and version confusion.

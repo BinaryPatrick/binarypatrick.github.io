@@ -26,7 +26,7 @@
     <div id="sidebar">
       <div class="sidebar-body">
         <div class="masthead">
-          <h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
+          <div class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></div>
           <p class="site-description">{{ site.description }}</p>
           <div class="menu-toggle" onclick="toggleMenu()">
             <div class="toggle-bar"></div>
@@ -45,15 +45,15 @@
           </div>
           <div class="social">{% include svg-icons.html %}</div>
           <div class="footer-links">
-            <a href="{{ site.baseurl }}/archive">Archives</a><br />
-            <a target="_blank" href="https://github.com/BinaryPatrick/BinaryPatrick.github.io">View Source</a>
+            <p><a href="{{ site.baseurl }}/tags">Tags</a></p>
+            <p><a href="{{ site.baseurl }}/archive">Archives</a></p>
+            <p><a target="_blank" href="https://github.com/BinaryPatrick/BinaryPatrick.github.io">View Source</a></p>
           </div>
         </div>
       </div>
     </div>
     <div id="main" role="main">{{ content }}</div>
 
-    {% include analytics.html %} {% include js.html %}
+    {% include analytics.html %} {% include toggle-menu.html %}
   </body>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </html>
