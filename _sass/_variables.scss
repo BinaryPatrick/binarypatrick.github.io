@@ -28,3 +28,9 @@ $notoSans: 'Noto Sans', sans-serif;
     @content;
   }
 }
+
+@mixin tablet {
+  @media screen and (max-width: 1350px) {
+    @content;
+  }
+}
