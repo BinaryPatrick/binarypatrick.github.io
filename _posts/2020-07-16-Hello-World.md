@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Hello World!
+title: 'Hello World!'
+date: 2020-07-16 -0500
 ---
 
 Finally, I have a blog set up.

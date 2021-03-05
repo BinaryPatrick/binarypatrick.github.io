@@ -2,11 +2,19 @@
 layout: default
 ---
 
+{%- assign date_format = site.minima.date_format | default: '%B %-d, %Y' -%}
+
 <article class="post">
   <h1>{{ page.title }}</h1>
-  <div class="date">Written on {{ page.date | date: "%B %e, %Y" }}</div>
+
+  <div>
+    <span class="date">Written on {{ page.date | date: date_format }}</span>
+    {%- if page.edit -%}
+    <span class="date">Updated on {{ page.edit | date: date_format }}</span>
+    {%- endif -%}
+  </div>
 
   <div class="entry">{{ content }}</div>
 
-  {% include twitter.html %}
+  {%- include twitter.html -%}
 </article>
