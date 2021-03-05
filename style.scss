@@ -40,9 +40,8 @@ h6 {
   font-family: $notoSerif;
   color: $darkerGray;
   font-weight: bold;
-
   line-height: 1.7;
-  margin: 0 0 15px;
+  margin: 15px 0 0;
   padding: 0;
 
   @include mobile {
@@ -51,6 +50,7 @@ h6 {
 }
 
 h1 {
+  margin: 0;
   font-size: 30px;
   a {
     color: inherit;
@@ -272,7 +272,7 @@ img {
 //
 
 #main {
-  max-width: 700px;
+  max-width: 900px;
   margin: 4em;
 
   @include mobile {
