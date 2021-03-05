@@ -85,7 +85,7 @@ a {
   cursor: pointer;
   &:hover,
   &:active {
-    color: $darkerGray;
+    color: $darkGray;
     text-decoration: underline;
   }
 }
@@ -199,7 +199,7 @@ img {
     color: $white;
     &:hover,
     &:focus {
-      color: $lightOrange;
+      color: $lightGray;
       text-decoration: none;
     }
   }
@@ -219,7 +219,6 @@ img {
 
     .site-name {
       font-family: $notoSerif;
-      color: $darkerGray;
       line-height: 1.7;
       font-weight: 300;
       font-size: 2rem;
