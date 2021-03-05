@@ -227,16 +227,21 @@ img {
   }
 
   #togglable {
+    @include mobile {
+      height: 100vh;
+      transition: height 0.4s;
+      overflow-y: scroll;
+
+      &.closed {
+        height: 0;
+      }
+    }
+
     & > div {
       padding-top: 3em;
 
       @include mobile {
         padding-top: 1rem;
-      }
-    }
-    &.closed {
-      @include mobile {
-        display: none;
       }
     }
   }

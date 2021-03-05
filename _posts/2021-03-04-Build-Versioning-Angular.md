@@ -51,6 +51,8 @@ This helps me remember if I'm in a non production environment, because there is 
 
 Likewise this is easier than it sounds. Now that the node types and version variable are available, they just need to be accessed and displayed somewhere in the app. I prefer to add this to the bootstrapped component, which is usually `AppComponent`. This best way I've found to do this is with a host binding.
 
+**Note**: _You do not need to specify `prod` vs `non-prod` in your environment import. When Angular builds, it will use the production environment if the `--prod` build flag is used._
+
 ```js
 import { Component, HostBinding } from '@angular/core';
 import { environment } from 'src/environments/environment';
@@ -62,8 +64,6 @@ export class AppComponent {
   @HostBinding('attr.app-version') appVersionAttr = environment.appVersion;
 }
 ```
-
-Note you do not need to specify `prod` vs `non-prod` in your environment import. When Angular builds, it will use the production environment if the `--prod` build flag is used.
 
 ### Step 5 - Adding `npm version` to your pipeline
 
