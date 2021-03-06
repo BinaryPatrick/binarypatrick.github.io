@@ -1,6 +1,7 @@
 ---
 layout: post
 title: 'Adding build versions in Angular'
+permalink: 'angular-build-versioning'
 date: 2021-03-04 19:30:00 -0500
 edit: 2021-03-05 10:30:00 -0500
 tags: ['Angular', 'Pipeline', 'DevOps']

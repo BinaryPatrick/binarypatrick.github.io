@@ -32,7 +32,7 @@ $notoSans: 'Noto Sans', sans-serif;
 }
 
 @mixin tablet {
-  @media screen and (max-width: 1350px) {
+  @media screen and (max-width: 1366px) {
     @content;
   }
 }

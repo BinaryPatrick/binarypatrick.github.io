@@ -1,20 +1,18 @@
 ---
 ---
 
-//
-// IMPORTS
-//
+/**************/
+/* IMPORTS */
+/**************/
 
-@import 'reset';
 @import 'variables';
-// Syntax highlighting @import is at the bottom of this file
+@import 'reset';
 
 /**************/
 /* BASE RULES */
 /**************/
 
 html {
-  font-size: 100%;
   height: 100%;
   overflow-y: scroll;
 }
@@ -41,38 +39,33 @@ h6 {
   font-family: $notoSerif;
   font-weight: bold;
   line-height: 1.7;
-  margin: 15px 0 0;
-  padding: 0;
 
   @include mobile {
     line-height: 1.4;
   }
 }
 
-h1,
-h2 {
-  margin: 0;
-}
-
 h1 {
-  font-size: 2rem;
+  font-size: 1.8rem;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 1.6rem;
+  margin-top: 1rem;
 }
 
 h3 {
-  font-size: 20px;
+  font-size: 1.4rem;
+  margin-top: 1rem;
 }
 
 h4 {
-  font-size: 18px;
-  color: $gray;
+  font-size: 1.2px;
+  margin-top: 1rem;
 }
 
 p {
-  margin: 15px 0;
+  margin: 1rem 0;
 }
 
 a {
@@ -88,8 +81,8 @@ a {
 
 ul,
 ol {
-  margin: 15px 0;
-  padding-left: 30px;
+  margin: 1rem 0;
+  padding-left: 2rem;
 }
 
 ul {
@@ -142,8 +135,12 @@ img {
 }
 
 ::-webkit-scrollbar {
-  width: 0.5em;
-  height: 0.5em;
+  width: 0.5rem;
+  height: 0.7rem;
+
+  @include mobile {
+    height: 0.2rem;
+  }
 }
 
 ::-webkit-scrollbar-track {
@@ -168,26 +165,23 @@ img {
 }
 
 /*********************/
-/* LAYOUT / SECTIONS */
+/* SIDEBAR */
 /*********************/
 
-// SIDEBAR
-
 #sidebar {
-  max-width: 425px;
-  width: 33%;
+  width: 450px;
   color: $white;
   background-color: $blue;
   font-family: $notoSans;
-  padding: 4em;
+  padding: 4rem;
 
   @include tablet {
-    padding: 2em;
+    width: 300px;
+    padding: 2rem;
   }
 
   @include mobile {
     padding: 1rem;
-    max-width: 100%;
     width: 100%;
   }
 
@@ -197,7 +191,11 @@ img {
 
   .sidebar-body {
     position: fixed;
-    max-width: 25%;
+    max-width: 24%;
+
+    @include tablet {
+      max-width: 18%;
+    }
 
     @include mobile {
       position: relative;
@@ -217,7 +215,7 @@ img {
       padding: 0;
       margin: 0;
 
-      a:hover {
+      &:hover {
         color: $lightYellow;
         text-decoration: none;
       }
@@ -235,7 +233,7 @@ img {
 
   #togglable {
     @include mobile {
-      height: 100vh;
+      height: calc(100vh - 85px);
       transition: height 0.4s;
       overflow-y: hidden;
 
@@ -245,7 +243,7 @@ img {
     }
 
     & > div {
-      padding-top: 3em;
+      padding-top: 3rem;
 
       @include mobile {
         padding-top: 1rem;
@@ -258,10 +256,10 @@ img {
     position: absolute;
     display: none;
     flex-direction: column;
-    top: 18px;
-    right: 30px;
-    height: 35px;
-    width: 30px;
+    top: 1.1rem;
+    right: 0.8rem;
+    height: 2rem;
+    width: 2rem;
 
     @include mobile {
       display: flex;
@@ -307,17 +305,17 @@ img {
   }
 }
 
-//
-// .main
-//
+/*********************/
+/* Main */
+/*********************/
 
 #main {
-  padding: 4em;
+  padding: 4rem;
   max-width: 850px;
   width: 66%;
 
   @include tablet {
-    padding: 2em;
+    padding: 2rem;
   }
 
   @include mobile {
@@ -327,16 +325,16 @@ img {
 }
 
 .posts > .post {
-  padding-bottom: 1em;
+  padding-bottom: 1rem;
   border-bottom: 1px solid $lighterGray;
 
   & + .post {
-    padding-top: 1em;
+    padding-top: 1rem;
   }
 }
 
 .posts > .post:last-child {
-  padding-bottom: 1em;
+  padding-bottom: 1rem;
   border-bottom: none;
 }
 
@@ -344,9 +342,9 @@ img {
   blockquote {
     margin: 1.8em 0.8em;
     border-left: 2px solid $gray;
-    padding: 0.1em 1em;
+    padding: 0.1rem 1rem;
     color: $gray;
-    font-size: 22px;
+    font-size: 1.5rem;
     font-style: italic;
   }
 
@@ -356,34 +354,34 @@ img {
 
   .read-more {
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 1rem;
   }
 }
 
 .post-listing {
   display: inline-block;
-  margin-right: 20px;
-  margin-bottom: 10px;
+  margin-right: 1.3rem;
+  margin-bottom: 0.7rem;
   border-bottom: 0.5px dotted $lightGray;
-}
-
-.twitter-share-button {
-  vertical-align: middle;
 }
 
 .date {
   font-size: 1rem;
   font-style: italic;
   color: $gray;
+
+  & + .date::before {
+    content: '|';
+    margin: 0 5px;
+    font-style: normal;
+  }
+
+  @include mobile {
+    font-size: 0.8rem;
+  }
 }
 
-.date + .date::before {
-  content: '|';
-  margin: 0 5px;
-  font-style: normal;
-}
-
-.tags {
+.date .tags {
   font-style: italic;
   font-size: 1rem;
   padding-top: 1rem;
@@ -394,7 +392,33 @@ img {
   }
 }
 
-// Settled on moving the import of syntax highlighting to the bottom of the CSS
-// ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
+.twitter-share-button {
+  vertical-align: middle;
+}
+
+/*********************/
+/* 404 */
+/*********************/
+
+#not-found {
+  text-align: center;
+}
+#not-found h1 {
+  font-size: 15rem;
+  font-family: 'Courier New';
+  line-height: 15rem;
+
+  @include mobile {
+    font-size: 10rem;
+  }
+}
+#not-found p {
+  font-size: 2rem;
+
+  @include mobile {
+    font-size: 1.5rem;
+  }
+}
+
 @import 'highlights';
 @import 'svg-icons';
